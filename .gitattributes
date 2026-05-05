@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+/.github export-ignore
+/tests export-ignore
+/docs export-ignore
+/vendor export-ignore
+/composer.lock export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore

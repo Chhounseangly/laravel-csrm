@@ -1,0 +1,58 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\Contracts\{{ Name }}RepositoryInterface;
+use App\Services\{{ Name }}Service;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
+
+class {{ Name }}Controller extends Controller
+{
+    public function __construct(
+        private {{ Name }}RepositoryInterface ${{ variable }}Repository,
+        private {{ Name }}Service ${{ variable }}Service
+    ) {}
+
+    public function index(): View
+    {
+        $data = $this->{{ variable }}Repository->paginate();
+        return view('{{ variable }}.index', compact('data'));
+    }
+
+    public function create(): View
+    {
+        return view('{{ variable }}.create');
+    }
+
+    public function store(Request $request): RedirectResponse
+    {
+        $this->{{ variable }}Service->create($request->validated());
+        return redirect()->route('{{ variable }}.index')->with('success', '{{ Name }} created successfully');
+    }
+
+    public function show(int|string $id): View
+    {
+        ${{ variable }} = $this->{{ variable }}Repository->findOrFail($id);
+        return view('{{ variable }}.show', compact('{{ variable }}'));
+    }
+
+    public function edit(int|string $id): View
+    {
+        ${{ variable }} = $this->{{ variable }}Repository->findOrFail($id);
+        return view('{{ variable }}.edit', compact('{{ variable }}'));
+    }
+
+    public function update(Request $request, int|string $id): RedirectResponse
+    {
+        $this->{{ variable }}Service->update($id, $request->validated());
+        return redirect()->route('{{ variable }}.index')->with('success', '{{ Name }} updated successfully');
+    }
+
+    public function destroy(int|string $id): RedirectResponse
+    {
+        $this->{{ variable }}Service->delete($id);
+        return redirect()->route('{{ variable }}.index')->with('success', '{{ Name }} deleted successfully');
+    }
+}

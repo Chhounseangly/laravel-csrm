@@ -1,0 +1,41 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\BaseController;
+use App\Repositories\Contracts\{{ Name }}RepositoryInterface;
+use App\Services\{{ Name }}Service;
+use Illuminate\Http\Request;
+
+class {{ Name }}Controller extends BaseController
+{
+    public function __construct(
+        private {{ Name }}RepositoryInterface ${{ variable }}Repository,
+        private {{ Name }}Service ${{ variable }}Service
+    ) {}
+
+    public function index()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function show(int|string $id)
+    {
+        //
+    }
+
+    public function update(Request $request, int|string $id)
+    {
+        //
+    }
+
+    public function destroy(int|string $id)
+    {
+        //
+    }
+}

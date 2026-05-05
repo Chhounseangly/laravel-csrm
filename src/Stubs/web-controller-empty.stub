@@ -1,0 +1,50 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Repositories\Contracts\{{ Name }}RepositoryInterface;
+use App\Services\{{ Name }}Service;
+use Illuminate\Http\Request;
+
+class {{ Name }}Controller extends Controller
+{
+    public function __construct(
+        private {{ Name }}RepositoryInterface ${{ variable }}Repository,
+        private {{ Name }}Service ${{ variable }}Service
+    ) {}
+
+    public function index()
+    {
+        //
+    }
+
+    public function create()
+    {
+        //
+    }
+
+    public function store(Request $request)
+    {
+        //
+    }
+
+    public function show(int|string $id)
+    {
+        //
+    }
+
+    public function edit(int|string $id)
+    {
+        //
+    }
+
+    public function update(Request $request, int|string $id)
+    {
+        //
+    }
+
+    public function destroy(int|string $id)
+    {
+        //
+    }
+}

@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Repositories\Contracts;
+
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+interface BaseRepositoryInterface
+{
+    /**
+     * Get all records
+     */
+    public function all(array $columns = ['*']): Collection;
+
+    /**
+     * Paginate records
+     */
+    public function paginate(int $perPage = 15, array $columns = ['*']): LengthAwarePaginator;
+
+    /**
+     * Find a record by ID
+     */
+    public function find(int|string $id, array $columns = ['*']): ?Model;
+
+    /**
+     * Find a record by ID or throw an exception
+     */
+    public function findOrFail(int|string $id): Model;
+
+    /**
+     * Find a record by field and value
+     */
+    public function findBy(string $field, mixed $value, array $columns = ['*']): ?Model;
+
+    /**
+     * Find all records by field and value
+     */
+    public function findAllBy(string $field, mixed $value, array $columns = ['*']): Collection;
+
+    /**
+     * Get the query builder instance for advanced queries
+     */
+    public function query(): Builder;
+
+    /**
+     * Create a new record
+     */
+    public function create(array $data): Model;
+
+    /**
+     * Update an existing record
+     */
+    public function update(int|string $id, array $data): Model;
+
+    /**
+     * Delete a record
+     */
+    public function delete(int|string $id): bool;
+}

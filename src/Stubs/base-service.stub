@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Services;
+
+use App\Repositories\Contracts\BaseRepositoryInterface;
+use Illuminate\Database\Eloquent\Model;
+
+abstract class BaseService
+{
+    public function __construct(protected BaseRepositoryInterface $repository) {}
+
+    // ── Action Methods (create, update, delete) ──────────────────────────────
+
+    /**
+     * Create a new record
+     * Override this method to add business logic before creation
+     */
+    public function create(array $data): Model
+    {
+        // Add business logic here (validation, transformation, side effects, etc.)
+        return $this->repository->create($data);
+    }
+
+    /**
+     * Update an existing record
+     * Override this method to add business logic before/after update
+     */
+    public function update(int|string $id, array $data): Model
+    {
+        // Add business logic here (validation, transformation, side effects, etc.)
+        return $this->repository->update($id, $data);
+    }
+
+    /**
+     * Delete a record
+     * Override this method to add business logic before deletion
+     */
+    public function delete(int|string $id): bool
+    {
+        // Add business logic here (cleanup, cascading operations, etc.)
+        return $this->repository->delete($id);
+    }
+}

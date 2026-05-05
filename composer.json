@@ -1,0 +1,67 @@
+{
+    "name": "seangly/laravel-csrm",
+    "description": "One command to scaffold a full Controller-Service-Repository-Model design pattern in Laravel",
+    "keywords": ["laravel", "package", "generator", "repository-pattern", "service-layer", "artisan-command", "scaffolding", "csrm"],
+    "authors": [
+        {
+            "role": "Developer",
+            "name": "Chhoun Seangly",
+            "email": "chhounseangly74@gmail.com",
+            "homepage": "https://github.com/Chhounseangly/laravel-csrm"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/Chhounseangly/laravel-csrm/issues",
+        "source": "https://github.com/Chhounseangly/laravel-csrm"
+    },
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "illuminate/console": "^10.0|^11.0|^12.0",
+        "illuminate/filesystem": "^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^8.0|^9.0|^10.0",
+        "pestphp/pest": "^2.0",
+        "laravel/pint": "^1.13",
+        "phpstan/phpstan": "^1.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "Seangly\\LaravelCsrm\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Seangly\\LaravelCsrm\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Seangly\\LaravelCsrm\\CsrmServiceProvider"
+            ]
+        },
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test:coverage": "vendor/bin/pest --coverage",
+        "pint": "vendor/bin/pint",
+        "lint": "vendor/bin/pint --test",
+        "format": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse --debug"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

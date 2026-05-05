@@ -1,0 +1,47 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Http\Controllers\BaseController;
+use App\Repositories\Contracts\{{ Name }}RepositoryInterface;
+use App\Services\{{ Name }}Service;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class {{ Name }}Controller extends BaseController
+{
+    public function __construct(
+        private {{ Name }}RepositoryInterface ${{ variable }}Repository,
+        private {{ Name }}Service ${{ variable }}Service
+    ) {}
+
+    public function index(): JsonResponse
+    {
+        $data = $this->{{ variable }}Repository->paginate();
+        return $this->success($data);
+    }
+
+    public function store(Request $request): JsonResponse
+    {
+        ${{ variable }} = $this->{{ variable }}Service->create($request->validated());
+        return $this->created(${{ variable }});
+    }
+
+    public function show(int|string $id): JsonResponse
+    {
+        ${{ variable }} = $this->{{ variable }}Repository->findOrFail($id);
+        return $this->success(${{ variable }});
+    }
+
+    public function update(Request $request, int|string $id): JsonResponse
+    {
+        ${{ variable }} = $this->{{ variable }}Service->update($id, $request->validated());
+        return $this->success(${{ variable }});
+    }
+
+    public function destroy(int|string $id): JsonResponse
+    {
+        $this->{{ variable }}Service->delete($id);
+        return $this->success(message: '{{ Name }} deleted successfully');
+    }
+}
