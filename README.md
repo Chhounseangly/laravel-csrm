@@ -435,7 +435,7 @@ php artisan optimize:clear
 
 For issues, feature requests, or contributions, visit the GitHub repository:
 
-https://github.com/seangly/laravel-csrm
+https://github.com/Chhounseangly/laravel-csrm
 
 ## License
 
