@@ -20,7 +20,7 @@ composer require seangly/laravel-csrm
     }
   ],
   "require": {
-    "seangly/laravel-csrm": "^1.0@dev"
+    "seangly/laravel-csrm": "@dev"
   }
 }
 ```

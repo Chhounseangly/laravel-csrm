@@ -38,7 +38,7 @@ If you have the package code locally and want to test it:
         }
     ],
     "require": {
-        "seangly/laravel-csrm": "^1.0@dev"
+        "seangly/laravel-csrm": "@dev"
     }
 }
 ```
