@@ -7,7 +7,7 @@ The **Laravel CSRM Package** is a powerful generator that scaffolds a complete *
 ## Requirements
 
 - **PHP**: 8.1 or higher
-- **Laravel**: 10.x, 11.x, or 12.x
+- **Laravel**: 10.x or higher
 - **Composer**: Latest version
 
 ## Installation
@@ -38,7 +38,7 @@ If you have the package code locally and want to test it:
         }
     ],
     "require": {
-        "seangly/laravel-csrm": "@dev"
+        "seangly/laravel-csrm": "dev-master"
     }
 }
 ```
